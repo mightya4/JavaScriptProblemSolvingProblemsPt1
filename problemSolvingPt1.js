@@ -29,3 +29,52 @@ function capitalizeLetter(stringToCapitalize){
 }
 let wordToCapitalize = prompt("Please enter words to which you would like to capitalize the first letter: ")
 console.log(capitalizeLetter(wordToCapitalize));
+
+function unlikeCharacterSeperator(){
+
+}
+function stringCompressor(stringToCompress){
+    let lengthOfWord = stringToCompress.length;
+    let i = 0;
+    let resultingString;
+    let nextElem = 0;
+    let tmpString="placeholder";
+    let counter = 1;
+    let firstIndex= 0;
+    while(i < lengthOfWord){
+        
+        let currentElem = stringToCompress[i];
+        
+        if(i == firstIndex){
+            tmpString = currentElem;
+        }
+        if(i < lengthOfWord - 1){
+            nextElem = stringToCompress[i+1];
+            if(currentElem == nextElem){
+                tmpString += nextElem;
+                counter += 1;
+            }
+            else{
+                if(counter <= 1){
+                    resultingString += tmpString[firstIndex];
+                    tmpString ="";
+                }
+                else{
+                    resultingString += counter + tmpString[firstIndex];
+                    counter = 1;
+                    tmpString="";
+                }
+
+            }
+        }
+        else{
+            resultingString += counter + tmpString[firstIndex];
+        }
+        i++;
+    }
+    return resultingString;
+}
+let sampleString = "aaabbbbbccccaacccbbbaaabbbaaa";
+let userStringToCompress = prompt("Please enter a string to compress");
+let compressedString = stringCompressor(userStringToCompress);
+console.log(compressedString);
