@@ -30,9 +30,7 @@ function capitalizeLetter(stringToCapitalize){
 let wordToCapitalize = prompt("Please enter words to which you would like to capitalize the first letter: ")
 console.log(capitalizeLetter(wordToCapitalize));
 
-function unlikeCharacterSeperator(){
 
-}
 function stringCompressor(stringToCompress){
     let lengthOfWord = stringToCompress.length;
     let i = 0;
